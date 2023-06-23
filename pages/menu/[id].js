@@ -13,7 +13,7 @@ function MenuDetails({ data }) {
 export default MenuDetails;
 
 export async function getStaticPaths() {
-  const res = await fetch("http://localhost:3001/data");
+  const res = await fetch("https://nextfood-api.vercel.app/data");
   const json = await res.json();
   const data = json.slice(0, 10);
   const paths = data.map((item) => ({ params: { id: item.id.toString() } }));
@@ -28,7 +28,7 @@ export async function getStaticProps(context) {
   const {
     params: { id },
   } = context;
-  const res = await fetch(`http://localhost:3001/data/${id}`);
+  const res = await fetch(`https://nextfood-api.vercel.app/data${id}`);
   const data = await res.json();
 
   if (!data.id) {
@@ -39,6 +39,6 @@ export async function getStaticProps(context) {
 
   return {
     props: { data },
-    revalidate: 30,
+    revalidate: 60 * 60,
   };
 }

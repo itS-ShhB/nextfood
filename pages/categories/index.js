@@ -11,7 +11,7 @@ export async function getServerSideProps(context) {
   const {
     query: { difficulty, time },
   } = context;
-  const res = await fetch("http://localhost:3001/data");
+  const res = await fetch("https://nextfood-api.vercel.app/data");
   const data = await res.json();
 
   const filteredData = data.filter((item) => {
@@ -33,7 +33,7 @@ export async function getServerSideProps(context) {
     } else if (!time && difficulty && difficultyResult.length) {
       return item;
     } else if (time && !difficulty && timeResult.length) {
-      returnitem;
+      return item;
     }
   });
   return { props: { data: filteredData } };

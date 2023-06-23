@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
+import Card from "../modules/Card";
 
-function CategoriesPage() {
+function CategoriesPage({ data }) {
   const router = useRouter();
   const [query, setQuery] = useState({ difficulty: "", time: "" });
   const changeHandler = (e) => {
@@ -14,6 +15,13 @@ function CategoriesPage() {
       query,
     });
   };
+  useEffect(() => {
+    const { difficulty, time } = router.query;
+    if (query.difficulty == !difficulty || query.time == !time) {
+      setQuery({ difficulty, time });
+    }
+  }, []);
+
   return (
     <div className="max-w-4xl m-auto mt-24">
       <h2 className="border-b-4 ml-5 border-[#53c60b w-fit mb-12 text-3xl]">
@@ -48,6 +56,14 @@ function CategoriesPage() {
           >
             Search
           </button>
+        </div>
+        <div className="flex flex-wrap justify-between mt-20">
+          {!data.length ? (
+            <img src="/images/search.png" alt="Category" className="m-auto" />
+          ) : null}
+          {data.map((item) => (
+            <Card key={item.id} {...item} />
+          ))}
         </div>
       </div>
     </div>
