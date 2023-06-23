@@ -31,7 +31,7 @@ function Card(props) {
       </div>
       <Link
         href={`/menu/${id}`}
-        className="bg-[#53c60b] text-white block w-full text-center mt-5 py-1 px-0 rounded"
+        className="bg-[#53c60b] text-white block w-full transition ease-in-out delay-75 text-center mt-5 py-1 px-0 rounded-xl border-2 hover:border-2 hover:border-[#53c60b] hover:bg-white hover:text-[#53c60b]"
       >
         See Details
       </Link>

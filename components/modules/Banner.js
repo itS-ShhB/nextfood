@@ -14,7 +14,7 @@ function Banner() {
           bikes or in foot.
         </span>
         <Link
-          className="bg-[#53c60b] text-white py-3 px-8 w-fit mt-8 rounded-md"
+          className="bg-[#53c60b] text-white py-3 px-8 w-fit mt-8 rounded-md hover:bg-white hover:text-[#53c60b] transition ease-in-out delay-75 hover:border-[#53c60b] hover:border-2 border-2"
           href="/menu"
         >
           See All

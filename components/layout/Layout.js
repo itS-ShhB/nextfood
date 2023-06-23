@@ -1,17 +1,18 @@
 import Link from "next/link";
+import { motion } from "framer-motion"
 
 function Layout({ children }) {
   return (
     <>
       <header className="max-w-4xl pt-3 m-auto flex justify-between items-center px-5 py-0">
-        <div className="">
+        <motion.div whileTap={{scale: 0.8}} whileHover={{scale: 1.2}}>
           <Link
             href="/"
             className="text-[#53c60b] font-semibold text-xl hover:border-b-2 border-gray-600 pb-2"
           >
             NextFood
           </Link>
-        </div>
+        </motion.div>
         <div>
           <Link
             href="/menu"
