@@ -3,7 +3,6 @@ import Dollar from "../icons/Dollar";
 import Link from "next/link";
 
 function Card(props) {
-  console.log(props);
   const { id, name, price, details, discount } = props || {};
   return (
     <div className="flex flex-col w-72 shadow-lg mb-10 p-3 rounded-xl relative">
