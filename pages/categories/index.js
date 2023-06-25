@@ -1,4 +1,5 @@
 import CategoriesPage from "../../components/templates/CategoriesPage";
+import { foods } from "../api/foods";
 
 function Categories({ data }) {
   console.log(data);
@@ -11,8 +12,8 @@ export async function getServerSideProps(context) {
   const {
     query: { difficulty, time },
   } = context;
-  const res = await fetch("https://nextfood-api.vercel.app/data");
-  const data = await res.json();
+  // const res = await fetch("https://nextfood-api-shhub.vercel.app/data");
+  const data = foods;
 
   const filteredData = data.filter((item) => {
     const difficultyResult = item.details.filter(

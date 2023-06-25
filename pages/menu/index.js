@@ -1,4 +1,5 @@
 import MenuPage from "../../components/templates/MenuPage";
+import { foods } from "../api/foods";
 
 function Menu({ data }) {
   return <MenuPage data={data} />;
@@ -7,12 +8,12 @@ function Menu({ data }) {
 export default Menu;
 
 export async function getStaticProps() {
-  const res = await fetch("https://nextfood-api.vercel.app/data");
-  const data = await res.json();
+  // const res = await fetch("/api/data/");
+  // const data = await res.json();
 
   return {
     props: {
-      data,
+      data: foods,
     },
     revalidate: 30,
   };
